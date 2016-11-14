@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>Pathfinding Visualizer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link id="cssTheme" rel="stylesheet" href="/public/styling/cssBasic.css">
+    <link rel="shortcut icon" type="image/png" href="/public/styling/c_icon.png"/>
+  </head>
+  <body>
+    <div id='navbarDiv'>
+     <nav class="navbar navbar-inverse">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <a id="refreshButton" class="navbar-brand" href="#">Pathfinding Visualizer</a>
+         </div>
+         <ul class="nav navbar-nav">
+           <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Algorithms
+             <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li id='startButtonDFS'><a href="#">Depth-first Search</a></li>
+               <li id='startButtonBFS'><a href="#">Breadth-first Search</a></li>
+               <li id='startButtonDijkstra'><a href="#">Dijkstra's Algorithm</a></li>
+               <li id='startButtonAStar2'><a href="#">A* Search</a></li>
+               <li id='startButtonGreedy'><a href="#">Greedy Best-first Search</a></li>
+               <li id='startButtonAStar'><a href="#">Swarm Algorithm</a></li>
+               <li id='startButtonAStar3'><a href="#">Convergent Swarm Algorithm</a></li>
+               <li id='startButtonBidirectional'><a href="#">Bidirectional Swarm Algorithm</a></li>
+             </ul>
+           </li>
+           <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mazes &amp; Patterns
+             <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li id='startButtonCreateMazeTwo'><a href="#">Recursive Division</a></li>
+               <li id='startButtonCreateMazeThree'><a href="#">Recursive Division (vertical skew)</a></li>
+               <li id='startButtonCreateMazeFour'><a href="#">Recursive Division (horizontal skew)</a></li>
+               <li id='startButtonCreateMazeOne'><a href="#">Basic Random Maze</a></li>
+               <li id='startButtonCreateMazeWeights'><a href="#">Basic Weight Maze</a></li>
+               <li id='startStairDemonstration'><a href="#">Simple Stair Pattern</a></li>
+             </ul>
+           </li>
+           <li id='startButtonAddObject'><a href="#">Add Bomb</a></li>
+           <li id='startButtonStart'><button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize!</button></li>
+           <li id='startButtonClearBoard'><a href="#">Clear Board</a></li>
+           <li id='startButtonClearWalls'><a href="#">Clear Walls</a></li>
+           <li id='startButtonClearPath'><a href="#">Clear Path</a></li>
+           <li class="dropdown">
+             <a id="adjustSpeed" class="dropdown-toggle" data-toggle="dropdown" href="#">Speed: Fast
+             <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li id='adjustFast'><a href="#">Fast</a></li>
+               <li id='adjustAverage'><a href="#">Average</a></li>
+               <li id='adjustSlow'><a href="#">Slow</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div>
+     </nav>
+   </div>
+    <div id='mainGrid'>
+      <div id='mainText'>
+        <ul>
+          <li>
+            <div class="start"></div>Start Node</li>
+          <li>
+            <div class="target"></div>Target Node</li>
+          <li id="bombLegend">
+            <div class="object"></div>Bomb Node</li>
+          <li id="weightLegend">
+            <div class="borderlessWeight"></div>Weight Node</li>
+          <li>
+            <div class="unvisited"></div>Unvisited Node</li>
+          <li>
+            <div class="visited"></div><div class="visitedobject"></div>Visited Nodes</li>
+          <li>
+            <div class="shortest-path"></div>Shortest-path Node</li>
+          <li>
+            <div class="wall"></div>Wall Node</li>
+        </ul>
+      </div>
+      <div id='otherText'>
+        <ul>
+          <li>click to add walls</li>
+          <li id="toStrikethrough">press W and click to add weights</li>
+          <li>drag start, bomb, and target nodes</li>
+          <div id="algorithmDescriptor">Pick an algorithm and visualize it!</div>
+        </ul>
+      </div>
+      <table id='board'/>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='/public/browser/bundle.js'></script>
+</html>

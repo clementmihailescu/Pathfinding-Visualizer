@@ -1219,8 +1219,9 @@ Board.prototype.clearWalls = function() {
   Object.keys(this.nodes).forEach(id => {
     let currentNode = this.nodes[id];
     let currentHTMLNode = document.getElementById(id);
-    if (currentNode.status === "wall") {
+    if (currentNode.status === "wall" || currentNode.weight === 15) {
       currentNode.status = "unvisited";
+      currentNode.weight = 0;
       currentHTMLNode.className = "unvisited";
     }
   });
@@ -1539,8 +1540,12 @@ Board.prototype.toggleButtons = function() {
     }
 
     document.getElementById("startButtonClearBoard").onclick = () => {
+      document.getElementById("startButtonAddObject").innerHTML = '<a href="#">Add Bomb</a></li>';
+
+
+
       let navbarHeight = document.getElementById("navbarDiv").clientHeight;
-      let textHeight = document.getElementById("mainText").clientHeight;
+      let textHeight = document.getElementById("mainText").clientHeight + document.getElementById("otherText").clientHeight;
       let height = Math.floor((document.documentElement.clientHeight - navbarHeight - textHeight) / 28);
       let width = Math.floor(document.documentElement.clientWidth / 25);
       let start = Math.floor(height / 2).toString() + "-" + Math.floor(width / 4).toString();
@@ -1633,7 +1638,7 @@ Board.prototype.toggleButtons = function() {
           }
         } else {
           let objectNodeId = this.object;
-          document.getElementById("startButtonAddObject").innerHTML = '<a href="#">Add a Bomb</a></li>';
+          document.getElementById("startButtonAddObject").innerHTML = '<a href="#">Add Bomb</a></li>';
           document.getElementById(objectNodeId).className = "unvisited";
           this.object = null;
           this.numberOfObjects = 0;

@@ -1340,8 +1340,8 @@ Board.prototype.changeStartNodeImages = function() {
     document.getElementById("weightLegend").className = "strikethrough";
     for (let i = 0; i < 14; i++) {
       let j = i.toString();
-      let backgroundImage = document.styleSheets["1"].rules[j].style.backgroundImage;
-      document.styleSheets["1"].rules[j].style.backgroundImage = backgroundImage.replace("triangle", "spaceship");
+      // let backgroundImage = document.styleSheets["1"].rules[j].style.backgroundImage;
+      // document.styleSheets["1"].rules[j].style.backgroundImage = backgroundImage.replace("triangle", "spaceship");
     }
   } else {
     if (this.currentAlgorithm === "greedy" || this.currentAlgorithm === "CLA") {
@@ -1351,11 +1351,12 @@ Board.prototype.changeStartNodeImages = function() {
     document.getElementById("weightLegend").className = "";
     for (let i = 0; i < 14; i++) {
       let j = i.toString();
-      let backgroundImage = document.styleSheets["1"].rules[j].style.backgroundImage;
-      document.styleSheets["1"].rules[j].style.backgroundImage = backgroundImage.replace("spaceship", "triangle");
+      // let backgroundImage = document.styleSheets["1"].rules[j].style.backgroundImage;
+      // document.styleSheets["1"].rules[j].style.backgroundImage = backgroundImage.replace("spaceship", "triangle");
     }
   }
   if (this.currentAlgorithm === "bidirectional") {
+
     document.getElementById("algorithmDescriptor").innerHTML = "This algorithm is <i><b>weighted</b></i> and <i><b>does not guarantee</b></i> the shortest path!";
     document.getElementById("bombLegend").className = "strikethrough";
     document.getElementById("startButtonAddObject").className = "navbar-inverse navbar-nav disabledA";

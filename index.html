@@ -57,6 +57,16 @@
        </div>
      </nav>
    </div>
+    <div id="tutorial">
+      <h3>Welcome to Pathfinding Visualizer!</h3>
+      <h6>This short tutorial will walk you through all of the features of this application.</h6>
+      <p>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!</p>
+      <div id="tutorialCounter">1/9</div>
+      <img id="mainTutorialImage" src="public/styling/c_icon.png">
+      <button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button>
+      <button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button>
+      <button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>
+    </div>
     <div id='mainGrid'>
       <div id='mainText'>
         <ul>
@@ -78,14 +88,7 @@
             <div class="wall"></div>Wall Node</li>
         </ul>
       </div>
-      <div id='otherText'>
-        <ul>
-          <li>click to add walls</li>
-          <li id="toStrikethrough">press W and click to add weights</li>
-          <li>drag start, bomb, and target nodes</li>
-          <div id="algorithmDescriptor">Pick an algorithm and visualize it!</div>
-        </ul>
-      </div>
+      <div id="algorithmDescriptor">Pick an algorithm and visualize it!</div>
       <table id='board'/>
     </div>
   </body>

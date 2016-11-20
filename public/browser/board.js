@@ -339,6 +339,7 @@ Board.prototype.drawShortestPathTimeout = function(targetNodeId, startNodeId, ty
   timeout(0);
 
   function timeout(index) {
+    if (!currentNodesToAnimate.length) currentNodesToAnimate.push(board.nodes[board.start]);
     setTimeout(function () {
       if (index === 0) {
         shortestPathChange(currentNodesToAnimate[index]);

@@ -1416,10 +1416,10 @@ Board.prototype.toggleButtons = function() {
 
 }
 
-let navbarHeight = document.getElementById("navbarDiv").clientHeight;
-let textHeight = document.getElementById("mainText").clientHeight + document.getElementById("algorithmDescriptor").clientHeight;
-let height = Math.floor((document.documentElement.clientHeight - navbarHeight - textHeight) / 28);
-let width = Math.floor(document.documentElement.clientWidth / 25);
+let navbarHeight = $("#navbarDiv").height();
+let textHeight = $("#mainText").height() + $("#algorithmDescriptor").height();
+let height = Math.floor(($(document).height() - navbarHeight - textHeight) / 28);
+let width = Math.floor($(document).width() / 25);
 let newBoard = new Board(height, width)
 newBoard.initialise();
 
@@ -1929,11 +1929,7 @@ function astar(nodes, start, target, nodesToAnimate, boardArray, name, heuristic
     if (currentNode.id === target) {
       return "success!";
     }
-    if (name === "astar" || name === "greedy") {
-      updateNeighbors(nodes, currentNode, boardArray, target, name, start, heuristic);
-    } else if (name === "dijkstra") {
-      updateNeighbors(nodes, currentNode, boardArray);
-    }
+    updateNeighbors(nodes, currentNode, boardArray, target, name, start, heuristic);
   }
 }
 
@@ -1964,16 +1960,6 @@ function updateNeighbors(nodes, node, boardArray, target, name, start, heuristic
     }
   }
 }
-
-function averageNumberOfNodesBetween(currentNode) {
-  let num = 0;
-  while (currentNode.previousNode) {
-    num++;
-    currentNode = currentNode.previousNode;
-  }
-  return num;
-}
-
 
 function updateNode(currentNode, targetNode, actualTargetNode, name, nodes, actualStartNode, heuristic, boardArray) {
   let distance = getDistance(currentNode, targetNode);
@@ -2118,7 +2104,7 @@ function getDistance(nodeOne, nodeTwo) {
     } else if (nodeOne.direction === "down-left") {
       return [2.5, null, "right"];
     }
-  } else if (x2 < x1 && y2 < y1) {
+  } /*else if (x2 < x1 && y2 < y1) {
     if (nodeOne.direction === "up") {
       return [1.5, ["f"], "up-left"];
     } else if (nodeOne.direction === "right") {
@@ -2190,7 +2176,7 @@ function getDistance(nodeOne, nodeTwo) {
     } else if (nodeOne.direction === "down-left") {
       return [1, null, "down-left"];
     }
-  }
+  }*/
 }
 
 function manhattanDistance(nodeOne, nodeTwo) {
@@ -2203,7 +2189,7 @@ function manhattanDistance(nodeOne, nodeTwo) {
 
   let xChange = Math.abs(xOne - xTwo);
   let yChange = Math.abs(yOne - yTwo);
-  if (xChange !== 0 && yChange !== 0) return (xChange + yChange);
+
   return (xChange + yChange);
 }
 

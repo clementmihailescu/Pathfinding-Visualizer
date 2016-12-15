@@ -1098,10 +1098,10 @@ Board.prototype.toggleButtons = function() {
 
 }
 
-let navbarHeight = document.getElementById("navbarDiv").clientHeight;
-let textHeight = document.getElementById("mainText").clientHeight + document.getElementById("algorithmDescriptor").clientHeight;
-let height = Math.floor((document.documentElement.clientHeight - navbarHeight - textHeight) / 28);
-let width = Math.floor(document.documentElement.clientWidth / 25);
+let navbarHeight = $("#navbarDiv").height();
+let textHeight = $("#mainText").height() + $("#algorithmDescriptor").height();
+let height = Math.floor(($(document).height() - navbarHeight - textHeight) / 28);
+let width = Math.floor($(document).width() / 25);
 let newBoard = new Board(height, width)
 newBoard.initialise();
 

@@ -18,7 +18,7 @@ This application supports the following algorithms:
 
 **Bidirectional Swarm Algorithm** (weighted): Swarm from both sides; does not guarantee the shortest path
 
-**Breath-first Search** (unweighted): a great algorithm; guarantees the shortest path
+**Breadth-first Search** (unweighted): a great algorithm; guarantees the shortest path
 
 **Depth-first Search** (unweighted): a very bad algorithm for pathfinding; does not guarantee the shortest path
 

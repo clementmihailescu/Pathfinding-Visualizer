@@ -826,7 +826,7 @@ Board.prototype.toggleButtons = function() {
 
 
     document.getElementById("startButtonBidirectional").onclick = () => {
-      document.getElementById("startButtonStart").innerHTML = '<button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize Bidirectional Swarm!</button>'
+      document.getElementById("startButtonStart").innerHTML = '<button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize BDS!</button>'
       this.currentAlgorithm = "bidirectional";
       this.currentHeuristic = "manhattanDistance";
       if (this.numberOfObjects) {
@@ -863,7 +863,7 @@ Board.prototype.toggleButtons = function() {
     }
 
     document.getElementById("startButtonAStar3").onclick = () => {
-      document.getElementById("startButtonStart").innerHTML = '<button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize Convergent Swarm!</button>'
+      document.getElementById("startButtonStart").innerHTML = '<button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize CS!</button>'
       this.currentAlgorithm = "CLA";
       this.currentHeuristic = "extraPoweredManhattanDistance"
       this.changeStartNodeImages();

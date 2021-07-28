@@ -405,11 +405,12 @@ Board.prototype.addEventListeners = function() {
         e.preventDefault();
         if (this.buttonsOn) {
           board.mouseDown = true;
+          board.buttonType = e.button;
           if (currentNode.status === "start" || currentNode.status === "target" || currentNode.status === "object") {
             board.pressedNodeStatus = currentNode.status;
           } else {
             board.pressedNodeStatus = "normal";
-            board.changeNormalNode(currentNode);
+            board.changeNormalNode(currentNode,board.buttonType);
           }
         }
       }
@@ -447,7 +448,7 @@ Board.prototype.addEventListeners = function() {
               }
             }
           } else if (board.mouseDown) {
-            board.changeNormalNode(currentNode);
+            board.changeNormalNode(currentNode,board.buttonType);
           }
         }
       }
@@ -458,6 +459,17 @@ Board.prototype.addEventListeners = function() {
           }
         }
       }
+    }
+  }
+  const body = document.querySelector("body");
+  body.onmouseup = () => {
+    if(board.pressedNodeStatus === "normal"){
+      this.mouseDown = false
+    }
+  }
+  body.onmouseleave = () => {
+    if(board.pressedNodeStatus === "normal"){
+      this.mouseDown = false
     }
   }
 };
@@ -498,16 +510,24 @@ Board.prototype.changeSpecialNode = function(currentNode) {
   }
 };
 
-Board.prototype.changeNormalNode = function(currentNode) {
+Board.prototype.changeNormalNode = function(currentNode,buttonType) {
   let element = document.getElementById(currentNode.id);
   let relevantStatuses = ["start", "target", "object"];
   let unweightedAlgorithms = ["dfs", "bfs"]
   if (!this.keyDown) {
     if (!relevantStatuses.includes(currentNode.status)) {
-      element.className = currentNode.status !== "wall" ?
-        "wall" : "unvisited";
-      currentNode.status = element.className !== "wall" ?
-        "unvisited" : "wall";
+      if(currentNode.status !== "wall" && buttonType === 0){
+        element.className = "wall";
+      }
+      else if(currentNode.status === "wall" && buttonType === 2){
+        element.className = "unvisited";
+      }
+      if(element.className === "wall" && buttonType === 0){
+        currentNode.status = "wall";
+      }
+      else if(element.className !== "wall" && buttonType === 2){
+        currentNode.status = "unvisited";
+      }
       currentNode.weight = 0;
     }
   } else if (this.keyDown === 87 && !unweightedAlgorithms.includes(this.currentAlgorithm)) {

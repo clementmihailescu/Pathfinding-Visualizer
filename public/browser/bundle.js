@@ -461,6 +461,17 @@ Board.prototype.addEventListeners = function() {
       }
     }
   }
+  const body = document.querySelector("body");
+  body.onmouseup = () => {
+    if(board.pressedNodeStatus === "normal"){
+      this.mouseDown = false
+    }
+  }
+  body.onmouseleave = () => {
+    if(board.pressedNodeStatus === "normal"){
+      this.mouseDown = false
+    }
+  }
 };
 
 Board.prototype.getNode = function(id) {

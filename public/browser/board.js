@@ -14,7 +14,7 @@ const simpleDemonstration = require("./mazeAlgorithms/simpleDemonstration");
 const bidirectional = require("./pathfindingAlgorithms/bidirectional");
 const getDistance = require("./getDistance");
 
-function Board(height, width) {
+function  Board(height, width) {
   this.height = height;
   this.width = width;
   this.start = null;

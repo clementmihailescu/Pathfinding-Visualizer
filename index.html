@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Pathfinding Visualizer</title>
+    <title>RMS-Mini-project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link id="cssTheme" rel="stylesheet" href="public/styling/cssBasic.css"/>
     <link rel="shortcut icon" type="image/png" href="public/styling/c_icon.png"/>
@@ -10,7 +10,7 @@
      <nav class="navbar navbar-inverse">
        <div class="container-fluid">
          <div class="navbar-header">
-           <a id="refreshButton" class="navbar-brand" href="#">Pathfinding Visualizer</a>
+           <a id="refreshButton" class="navbar-brand" href="#">Route Visualizer</a>
          </div>
          <ul class="nav navbar-nav">
            <li class="dropdown">
@@ -28,21 +28,22 @@
              </ul>
            </li>
            <li class="dropdown">
-             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mazes &amp; Patterns
+             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Traffic Day
              <span class="caret"></span></a>
              <ul class="dropdown-menu">
-               <li id='startButtonCreateMazeTwo'><a href="#">Recursive Division</a></li>
-               <li id='startButtonCreateMazeThree'><a href="#">Recursive Division (vertical skew)</a></li>
-               <li id='startButtonCreateMazeFour'><a href="#">Recursive Division (horizontal skew)</a></li>
-               <li id='startButtonCreateMazeOne'><a href="#">Basic Random Maze</a></li>
-               <li id='startButtonCreateMazeWeights'><a href="#">Basic Weight Maze</a></li>
-               <li id='startStairDemonstration'><a href="#">Simple Stair Pattern</a></li>
+               <li id='startButtonCreateMazeTwo'><a href="#">Monday</a></li>
+               <li id='startButtonCreateMazeThree'><a href="#">Tuesday</a></li>
+               <li id='startButtonCreateMazeFour'><a href="#">Wednesday</a></li>
+               <li id='startButtonCreateMazeOne'><a href="#">Thursday</a></li>
+               <li id='startButtonCreateMazeWeights'><a href="#">Friday</a></li>
+               <li id='startStairDemonstration'><a href="#">Saturday</a></li>
              </ul>
            </li>
-           <li id='startButtonAddObject'><a href="#">Add Bomb</a></li>
+           <li id='startButtonAddObject'></li>
+          
            <li id='startButtonStart'><button id="actualStartButton" class="btn btn-default navbar-btn" type="button">Visualize!</button></li>
            <li id='startButtonClearBoard'><a href="#">Clear Board</a></li>
-           <li id='startButtonClearWalls'><a href="#">Clear Walls &amp; Weights</a></li>
+           <li id='startButtonClearWalls'><a href="#">Clear Roads</a></li>
            <li id='startButtonClearPath'><a href="#">Clear Path</a></li>
            <li class="dropdown">
              <a id="adjustSpeed" class="dropdown-toggle" data-toggle="dropdown" href="#">Speed: Fast
@@ -58,7 +59,7 @@
      </nav>
    </div>
     <div id="tutorial">
-      <h3>Welcome to Pathfinding Visualizer!</h3>
+      <h3>Welcome to Route Visualizer!</h3>
       <h6>This short tutorial will walk you through all of the features of this application.</h6>
       <p>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!</p>
       <div id="tutorialCounter">1/9</div>
@@ -71,13 +72,13 @@
       <div id='mainText'>
         <ul>
           <li>
-            <div class="start"></div>Start Node</li>
+            <div class="start"></div>Source</li>
           <li>
-            <div class="target"></div>Target Node</li>
-          <li id="bombLegend">
-            <div class="object"></div>Bomb Node</li>
-          <li id="weightLegend">
-            <div class="borderlessWeight"></div>Weight Node</li>
+            <div class="target"></div>Destination</li>
+            <li id="bombLegend">
+              </li>
+            <li id="weightLegend">
+             </li>
           <li>
             <div class="unvisited"></div>Unvisited Node</li>
           <li>
